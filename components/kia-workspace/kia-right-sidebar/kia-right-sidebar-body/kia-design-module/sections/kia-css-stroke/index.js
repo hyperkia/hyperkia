@@ -10,7 +10,7 @@ class KIA_CSS_Stroke extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-stroke/style.css'};
+    customizer = {styleHref: '/components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-stroke/style.css'};
 
     constructor() {
         super();

@@ -4,7 +4,7 @@ import html from './html.js';
 
 class KIA_Design_Module extends KIACustomElement {
 
-    customizer = {styleHref: 'components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-code-module/style.css'};
+    customizer = {styleHref: '/components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-code-module/style.css'};
 
     constructor() {
         super();

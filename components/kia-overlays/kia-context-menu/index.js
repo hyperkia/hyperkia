@@ -9,7 +9,7 @@ class KIA_Context_Menu extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-overlays/kia-context-menu/style.css'};
+    customizer = {styleHref: '/components/kia-overlays/kia-context-menu/style.css'};
 
     constructor() {
         super();

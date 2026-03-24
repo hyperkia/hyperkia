@@ -3,7 +3,7 @@ import html from './html.js';
 
 class KIA_Input extends KIACustomElement{
 
-	customizer = {styleHref: 'components/kia-ui/kia-input/style.css'};
+	customizer = {styleHref: '/components/kia-ui/kia-input/style.css'};
 
 	constructor(){
 		super();

@@ -9,7 +9,7 @@ class KIA_Assets_Manager_Modal extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-overlays/kia-modals/modals/kia-assets-manager-modal/style.css'};
+    customizer = {styleHref: '/components/kia-overlays/kia-modals/modals/kia-assets-manager-modal/style.css'};
 
     constructor() {
         super();

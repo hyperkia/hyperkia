@@ -11,7 +11,7 @@ class KIA_CSS_Filter extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-filter/style.css'};
+    customizer = {styleHref: '/components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-filter/style.css'};
 
     constructor() {
         super();

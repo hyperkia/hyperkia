@@ -9,7 +9,7 @@ class KIA_Font_Library_Modal extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-overlays/kia-modals/modals/kia-font-library-modal/style.css'};
+    customizer = {styleHref: '/components/kia-overlays/kia-modals/modals/kia-font-library-modal/style.css'};
 
     constructor() {
         super();

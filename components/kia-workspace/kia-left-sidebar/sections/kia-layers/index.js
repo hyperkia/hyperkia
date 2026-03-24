@@ -11,7 +11,7 @@ class KIA_Layers extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-workspace/kia-left-sidebar/sections/kia-layers/style.css'};
+    customizer = {styleHref: '/components/kia-workspace/kia-left-sidebar/sections/kia-layers/style.css'};
 
     constructor() {
         super();

@@ -13,7 +13,7 @@ class KIA_Color_Picker_Popover extends KIACustomElement{
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-overlays/kia-popovers/popovers/kia-color-picker-popover/style.css'};   
+    customizer = {styleHref: '/components/kia-overlays/kia-popovers/popovers/kia-color-picker-popover/style.css'};   
 
     constructor(){
         super();

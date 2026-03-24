@@ -9,7 +9,7 @@ class KIA_Prop_Input extends KIACustomElement{
 
 	methods = methods;
 	props = props;
-	customizer = {styleHref: 'components/kia-ui/kia-prop-input/style.css'};
+	customizer = {styleHref: '/components/kia-ui/kia-prop-input/style.css'};
 
 	constructor(){
 		super();

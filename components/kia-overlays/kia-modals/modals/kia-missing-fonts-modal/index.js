@@ -9,7 +9,7 @@ class KIA_Missing_Fonts_Modal extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: 'components/kia-overlays/kia-modals/modals/kia-missing-fonts-modal/style.css'};
+    customizer = {styleHref: '/components/kia-overlays/kia-modals/modals/kia-missing-fonts-modal/style.css'};
 
     constructor() {
         super();
