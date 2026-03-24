@@ -69,7 +69,7 @@ class KIA_App extends KIACustomElement {
 
         window.addEventListener('error', (e) => {
             console.log(e);
-            alert('Console Error');
+            // alert('Console Error');
         })
     }
 }
