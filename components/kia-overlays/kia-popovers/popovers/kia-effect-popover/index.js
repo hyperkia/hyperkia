@@ -10,7 +10,7 @@ class KIA_Effect_Popover extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: '/components/kia-overlays/kia-popovers/popovers/kia-effect-popover/style.css'};
+    customizer = {styleHref: 'components/kia-overlays/kia-popovers/popovers/kia-effect-popover/style.css'};
 
     constructor() {
         super();

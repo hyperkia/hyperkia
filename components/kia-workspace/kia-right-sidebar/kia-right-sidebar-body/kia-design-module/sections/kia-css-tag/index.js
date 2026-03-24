@@ -9,7 +9,7 @@ class KIA_CSS_Tag extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: '/components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-tag/style.css'};
+    customizer = {styleHref: 'components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-tag/style.css'};
   
     constructor() {
         super();

@@ -10,7 +10,7 @@ class KIA_CSS_Appearance extends KIACustomElement {
     
     methods = methods;
     props = props;
-    customizer = {styleHref: '/components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-appearance/style.css'};
+    customizer = {styleHref: 'components/kia-workspace/kia-right-sidebar/kia-right-sidebar-body/kia-design-module/sections/kia-css-appearance/style.css'};
 
     constructor() {
         super();

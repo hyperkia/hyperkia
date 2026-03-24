@@ -11,7 +11,7 @@ class KIA_Assets extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: '/components/kia-workspace/kia-left-sidebar/sections/kia-assets/style.css'};
+    customizer = {styleHref: 'components/kia-workspace/kia-left-sidebar/sections/kia-assets/style.css'};
 
     constructor() {
         super();

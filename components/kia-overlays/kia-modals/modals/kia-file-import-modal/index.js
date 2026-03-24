@@ -9,7 +9,7 @@ class KIA_File_Import_Modal extends KIACustomElement {
 
     methods = methods;
     props = props;
-    customizer = {styleHref: '/components/kia-overlays/kia-modals/modals/kia-file-import-modal/style.css'};
+    customizer = {styleHref: 'components/kia-overlays/kia-modals/modals/kia-file-import-modal/style.css'};
 
     constructor() {
         super();

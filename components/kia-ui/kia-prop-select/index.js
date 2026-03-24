@@ -10,7 +10,7 @@ class KIA_Prop_Select extends KIACustomElement{
 	detailsEl = null;
 	methods = methods;
 	props = props;
-	customizer = {styleHref: '/components/kia-ui/kia-prop-select/style.css'};
+	customizer = {styleHref: 'components/kia-ui/kia-prop-select/style.css'};
 
 	constructor(){
 		super();
