@@ -16,7 +16,7 @@ import methods from './utils/methods.js';
 import props from './utils/props.js';
 
 import "../kia-ui/index.js";
-
+console.log(123);
 class KIA_App extends KIACustomElement {
 
     methods = methods;
