@@ -1,0 +1,10 @@
+
+:host{display: none;}
+.prop-background-color::part(label-svg){border:1px solid #383838;background-color: var(--value, inherit)}
+
+
+/* Selection Capability */
+:host([data-selection-type="canvas"]){display: block;}
+:host([data-selection-type="page"]){display: block;}
+:host([data-selection-type="sectionhtml"]){display: block;}
+:host([data-selection-type="moresvg"]){display: block;}

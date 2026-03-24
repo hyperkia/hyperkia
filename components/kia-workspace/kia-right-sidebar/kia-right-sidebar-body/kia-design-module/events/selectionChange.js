@@ -1,0 +1,15 @@
+
+import props from '../utils/props.js';
+
+class Index {
+
+	static handler(e){
+		const selectionType = KIA.dom.read.getSelectionUiType();		
+		for(const c of props.root.shadowRoot.children) {
+			if(c.nodeName.indexOf('KIA-CSS') === 0) c.setAttribute('data-selection-type', selectionType);
+		} 
+	}
+
+}
+
+export default Index;

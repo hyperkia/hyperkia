@@ -1,0 +1,8 @@
+
+.section{display: flex;flex-direction: column;height: 100vh;}
+.header{display: flex;justify-content: space-between;padding: 5px;border-bottom: 1px solid #e6e6e6;position: sticky;top:0;background-color: #fff;z-index: 1;}
+.tab-links{display: flex;gap: 6px;}
+
+.flip-sidebar-btn::part(svg) {fill: none;stroke: currentColor;stroke-width: 2px;width: 19px;height: 19px;}
+
+.tab-contents{flex-grow: 1;overflow: auto;}

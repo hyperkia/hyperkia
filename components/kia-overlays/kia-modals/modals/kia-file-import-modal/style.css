@@ -1,0 +1,30 @@
+:host{display: block;}
+.section{width:85vw;height: 85vh;border:1px solid #ccc;display: flex;flex-direction: column;}
+.header{display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;padding:15px 20px;border-bottom:2px solid #ccc;}
+.title {margin-bottom: 0;}
+
+
+.tab{padding: 0 15px 20px 15px;display: flex;flex-direction: column;flex-grow: 1;height: 100px;}
+
+.tabmenu{display: flex;justify-content: flex-start;align-items: center;gap: 2px;margin-top: 8px;padding-right: 20px;}
+.tabmenu-item{display: inline-flex;justify-content: center;align-items: center;padding: 6px 14px;background-color: #383838;position: relative;color: #fff;font-size: 13px;user-select: none;border:2px solid #383838;font-weight: 500;cursor: pointer;}
+.tabmenu-item.active{background-color: transparent !important;color: #383838 !important;}
+
+.tabcontents{flex-grow: 1;height: 100px;}
+.tabcontent{height:100%;display: none;pointer-events: none;}
+.tabcontent.active{display: block;pointer-events: auto;}
+
+.tabcontents:has([data-id="uploadfile"].active){padding-top: 20px;}
+.upload-sec{height: 100%;border: 3px dashed #ccc;border-radius: 11px;margin: 0 auto;text-align: center;padding: 10px;display: flex;flex-direction: column;align-items: center;justify-content: center;position: relative;isolation: isolate;}
+.upload-icon{width: 100px;width: 48px;height: 48px;}
+.upload-title{font-size: 32px;font-weight: 500;line-height: 42px;}
+.upload-format{font-size: 25px;font-weight: 500;line-height: 35px;color: #a9acb4;}
+.upload-btn{display: inline-block;text-align: center;padding: 11px 30px;border: 2px solid #a9acb4;font-size: 20px;color: #54575c;border-radius: 27px;margin-top: 20px;}
+.upload-input{position: absolute;top: 0;left:0;width:100%;height:100%;z-index: 1;opacity: 0;cursor: pointer;}
+
+.fromurl-sec{height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.fromurl-title{font-size: 32px;font-weight: 500;line-height: 42px;margin-top: -50px;}
+.fromurl-input-wrapper{border: 3px dashed #ccc;width: 100%;max-width: 600px;display: flex;border-radius: 29px;overflow: hidden;margin-top: 15px;}
+.fromurl-input{border: none;width: 50%;flex-grow: 1;padding: 5px 15px;font-size: 16px;}
+.fromurl-btn{background: #383838;color: #fff;border: none;padding: 12px 30px;border-radius: 29px;font: inherit;font-size: 18px;text-transform: uppercase;cursor: pointer;}
+.fromurl-btn.disable{pointer-events: none;}

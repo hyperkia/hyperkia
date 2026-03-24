@@ -1,0 +1,52 @@
+
+import props from '../utils/props.js';
+import * as registry from '../registry/index.js';
+
+class Index {
+
+	static handler(e){		
+		e.detail.e.preventDefault();
+		const eventObj = e.detail.e;
+		const target = eventObj.composedPath()[0];
+		const targetType = KIA.dom.read.resolveInteractionTarget(target);
+		const targetKey = KIA.dom.read.resolveInteractionTargetKey(target);
+		const keys = new Set().add(targetKey);
+        KIA.actions.share.setSelectionKeys(keys);
+
+		const menu = registry[targetType];
+		if(!menu) return;
+		for(let c of props.root.$id.menu.children) c.classList.add('hidden');
+		const required = menu.length - props.root.$id.menu.childElementCount;
+		if(required > 0) {
+			for(let i=1; i<=required; i++) {
+				const itemTemplate = props.root.$id.menuItemTemplate.content.cloneNode(true);
+				props.root.$id.menu.appendChild(itemTemplate);	
+			}			
+		}
+
+		[...props.root.$id.menu.children].forEach((c,i)=>{
+			const menuItem = menu[i];
+			if(!menuItem) return;
+			const iconEl = c.querySelector('.icon');
+			const iconUseEl = c.querySelector('.icon-use');
+			const titleEl = c.querySelector('.title');
+			const shortcutEl = c.querySelector('.shortcut');
+
+			c.dataset.action = menuItem.action;
+			iconEl.style.setProperty('--fill', menuItem.icon.fill||'none');
+			iconUseEl.setAttribute('href', `assets/images/svg-icons.svg#${menuItem.icon.name}-symbol`);
+			titleEl.innerText = menuItem.title;
+			shortcutEl.innerText = menuItem.shortcut;
+			c.classList.remove('hidden');
+		})
+
+		props.root.style.left = `${eventObj.clientX}px`;
+		props.root.style.top = `${eventObj.clientY}px`;
+		props.root.classList.add('show');
+		props.root.dataset.for = targetType;
+	}
+
+}
+
+export default Index;
+
