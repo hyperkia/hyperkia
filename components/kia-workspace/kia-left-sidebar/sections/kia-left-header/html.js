@@ -19,7 +19,7 @@ const html = `
 					-->
 				</ul>	
 			</nav>
-			<kia-button class="sidebar-btn" data-icon="sidebar-symbol" data-event="flipSidebar"></kia-button>
+			<kia-button class="sidebar-btn" data-icon="sidebar-symbol" data-event="flipSidebar" style="display:none !important;"></kia-button>
 		</header>
 	</section>
 `;
