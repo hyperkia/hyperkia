@@ -11,6 +11,7 @@ function Index(assets){
         	url,
         }
     }
+
     return result;
 }
 

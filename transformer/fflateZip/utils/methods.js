@@ -160,18 +160,22 @@ const Index = {
     },
 
     normalizeAssets(data){
+        const assets = {};
         const assetsKeyMap = {};
+
         for(let [aOldKey, aObj] of Object.entries(data.assets)) {
             const uint8 = this.base64ToUint8Array(aObj.data);
             aObj.blob =  new File([uint8], aObj.name, { type: aObj.type });
             const newKey = crypto.randomUUID();
             aObj.key = newKey;
-            assetsKeyMap[newKey] = aOldKey;
+            assetsKeyMap[aOldKey] = newKey;
             delete aObj.data;
             delete aObj.path;
+            assets[newKey] = aObj;
         };
 
         data.assetsKeyMap = assetsKeyMap;
+        data.assets = assets;
     },
 
     normalizePages(data){
@@ -208,8 +212,9 @@ const Index = {
             if(layerIndex !== -1) pageLayers[layerIndex] = newKey;
 
             // Asset
-            if(lObj.attrs?.src && aMap[lObj.attrs.src]) lObj.attrs.src = aMap[lObj.attrs.src];
+            if(lObj.assets?.src && aMap[lObj.assets.src]) lObj.assets.src = aMap[lObj.assets.src];            
         }
+        
         data.layers = layers;
     },
 
