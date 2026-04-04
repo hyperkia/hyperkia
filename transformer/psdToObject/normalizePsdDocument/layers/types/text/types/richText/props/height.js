@@ -1,13 +1,12 @@
 
-import methods from '../../../methods/index.js';
 
-function Index(l) {	
-	// const result = {};
-	// const height = methods.height(l);
-	// let value = 'auto';
-	// if(height) value = height+'px';
-	// if(value) result.height = value;
-	return 'auto';
+function Index(layer) {
+  const result = {};
+
+  const height = (layer.bottom - layer.top) + 26;
+  result.height = height + 'px';
+
+  return result;
 }
 
 export default Index;

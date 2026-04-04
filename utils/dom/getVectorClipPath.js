@@ -17,7 +17,7 @@ function Index(l) {
 	}
 
 	return `
-		<svg ${svgAttrs} class="canvas-layer" data-layer="${l.key}" viewBox="0 0 ${l.css.width.replace('px','')} ${l.css.height.replace('px','')}" xmlns="http://www.w3.org/2000/svg">
+		<svg overflow="visible" ${svgAttrs} class="canvas-layer" data-layer="${l.key}" viewBox="0 0 ${l.css.width.replace('px','')} ${l.css.height.replace('px','')}" xmlns="http://www.w3.org/2000/svg">
 			<defs>
 			  <clipPath id="${l.key}-arrow" clipPathUnits="userSpaceOnUse">
 				${clipPart}			    

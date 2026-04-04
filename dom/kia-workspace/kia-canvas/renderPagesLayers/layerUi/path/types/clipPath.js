@@ -12,7 +12,7 @@ l.clipSiblingLayer.forEach((csl)=>{
 })
 
 return `
-	<svg class="canvas-layer" data-layer="${l.key}" viewBox="0 0 ${l.css.width.replace('px','')} ${l.css.height.replace('px','')}" xmlns="http://www.w3.org/2000/svg">
+	<svg overflow="visible" class="canvas-layer" data-layer="${l.key}" viewBox="0 0 ${l.css.width.replace('px','')} ${l.css.height.replace('px','')}" xmlns="http://www.w3.org/2000/svg">
 		${baseLayer}
 		${clipSiblingLayer}
 	</svg>

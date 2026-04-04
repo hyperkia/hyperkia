@@ -1,21 +1,47 @@
 function Index(resolveFonts) {
-    const updateLayers = [];
+    
+    const psdLayers = [];
+    const layersNewObj = {};
     const layers = KIA.state.layers.map;
-
-    for (const [key, l] of Object.entries(layers)) {
-        const existingFont = l.css['font-family'];
-        if (resolveFonts[existingFont]) {
-            l.css['font-family'] = resolveFonts[existingFont];
-            updateLayers.push({
-            	key,
-            	css: {
-            		'font-family': `"${l.css['font-family']}"`
-            	}
-            })
-        }
+    const pages = KIA.state.pages.map;
+    for(let [pKey, pObj] of Object.entries(pages)) {
+        if(pObj.source === 'psd') psdLayers.push(...pObj.layers);
     }
 
-	KIA.services.idb.core.updateObjects('layers', updateLayers);
+    psdLayers.forEach((lKey)=>{
+        const lObj = layers[lKey];
+        if(!lObj) return;
+
+        // Layer InnerText
+        if (lObj.innerText) {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(lObj.innerText, "text/html");
+
+          const els = doc.querySelectorAll("*");
+
+          els.forEach((el) => {
+            const elFont = el.style.fontFamily;
+
+            if (elFont && resolveFonts[elFont]) {
+              Object.assign(el.style, resolveFonts[elFont]);
+            }
+          });
+
+          lObj.innerText = doc.body.innerHTML;
+        }
+
+        // Layer
+        const layerFont = lObj.css['font-family'];
+        if(layerFont && resolveFonts[layerFont]) {
+            layersNewObj[lKey] = {
+                key: lKey,
+                css: resolveFonts[layerFont]
+            }
+        }
+        
+    });
+
+    KIA.state.layers.updatePsdLayers(layersNewObj);
 }
 
 export default Index;

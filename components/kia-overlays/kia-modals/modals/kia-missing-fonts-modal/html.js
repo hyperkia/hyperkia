@@ -7,7 +7,7 @@ const html = `
 		
 		<article class="body">
 			<div class="content">			
-				<p>Some fonts used in this design are not available on your system. To keep the layout accurate, please choose a replacement font or upload the missing font files.</p>
+				<p>Some fonts used in this design are not available on your system. To keep the layout accurate, please choose a replacement font.</p>
 				<div class="missing-items" data-id="missing-items"></div>
 				<!-- <template data-id="missing-item-template">
 					<div class="missing-item">

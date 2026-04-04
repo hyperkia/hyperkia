@@ -75,6 +75,10 @@ const Index = {
 		KIA.dom.kiaCanvas.updateLayerSelectionAssets();
 	},
 
+	updatePsdLayers(){
+		KIA.dom.kiaCanvas.updatePsdLayers();
+	}
+
 } 
 
 export default Index;

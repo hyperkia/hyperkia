@@ -8,18 +8,16 @@ function parseLayer() {
     layerObj.pId = props.activeParseLayer.pageKey;    
 
     const parseData = type();
-    if (parseData?.css) Object.assign(layerObj.css, parseData.css);
-    if (parseData?.attrs) Object.assign(layerObj.attrs, parseData.attrs);
 
-    if (parseData?.scss) Object.assign(layerObj.scss, parseData.scss);
-    if (parseData?.sattrs) Object.assign(layerObj.sattrs, parseData.sattrs);
+    const mergeFields = ['css', 'attrs', 'scss', 'sattrs','stack'];
+    mergeFields.forEach(f => {
+        if(parseData && parseData[f]) Object.assign(layerObj[f], parseData[f]);
+    });
 
-    if (parseData?.nodeName) layerObj.nodeName = parseData.nodeName;
-    if (parseData?.innerText) layerObj.innerText = parseData.innerText;    
-    if (parseData?.canvas) layerObj.canvas = parseData.canvas;    
-    if (parseData?.clipBaseLayer) layerObj.clipBaseLayer = parseData.clipBaseLayer;
-    if (parseData?.clipSiblingLayer) layerObj.clipSiblingLayer = parseData.clipSiblingLayer;
-    if (parseData?.gradient) layerObj.gradient = parseData.gradient;
+    const replaceFileds = ['nodeName','type','innerText','canvas','clipBaseLayer','clipPath', 'clipSiblingLayer'];
+    replaceFileds.forEach(f => {
+        if(parseData && parseData[f]) layerObj[f] = parseData[f];
+    });    
 
     return layerObj;
 }
@@ -42,7 +40,7 @@ function setClipSiblingLayers(children, j){
 async function layerImgCanvasToBlob(lObj){
     // Main
     if (lObj.canvas) {
-        lObj.blob = await KIA.utils.dom.canvasToBlob(lObj.canvas);
+        lObj.assets.src = await KIA.utils.dom.canvasToBlob(lObj.canvas);
         delete lObj.canvas;
     }
 
@@ -67,10 +65,8 @@ async function layerImgCanvasToBlob(lObj){
     }
 }
 
-
-
-async function Index(pageKey) {
-    props.activeParseLayer.pageKey = pageKey;
+async function Index(data) {
+    props.activeParseLayer.pageKey = Object.keys(data.pages)[0];
     props.activeParseLayer.zIndex = 0;
 
     const layers = {};

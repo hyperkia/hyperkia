@@ -202,7 +202,6 @@ const Index = {
             // Layers
             const newKey = crypto.randomUUID();
             lObj.key = newKey;
-            lObj.oldKey = lOldKey;
             lObj.pId = data.pagesKeyMap[lObj.pId];
             layers[newKey] = lObj;
 

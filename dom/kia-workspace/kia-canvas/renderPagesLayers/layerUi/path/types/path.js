@@ -1,13 +1,16 @@
 function Index(l) {
+    const layerSattrs = structuredClone(l.sattrs);
+    delete layerSattrs.fill;
+    const svgAttrs = KIA.utils.dom.objectToAttributeString(l.attrs);
+    const shapeAttrs = KIA.utils.dom.objectToAttributeString(layerSattrs);	
 
-	const svgAttrs = Object.entries(l.attrs).map(([k, v]) => `${k}="${v}"`).join(' ');
-    const shapeAttrs = Object.entries(l.sattrs).map(([k, v]) => `${k}="${v}"`).join(' ');
     let fill = l.sattrs.fill;
-    if(l.gradient) fill = `url(#${KIA.registry.svgGradient.createRegistry(l.gradient)})`;
+    const gradientId = KIA.registry.svgGradient.createRegistry(l.stack);
+    if(gradientId) fill = `url(#${gradientId})`;
 
 	return `
-		<svg data-name="${l.name}" class="canvas-layer" xmlns="http://www.w3.org/2000/svg" ${svgAttrs} data-layer="${l.key}">
-	        <path ${shapeAttrs} data-svgshape="${l.key}"></path>
+		<svg overflow="visible" data-name="${l.name}" class="canvas-layer" xmlns="http://www.w3.org/2000/svg" ${svgAttrs} data-layer="${l.key}">
+	        <path ${shapeAttrs} fill="${fill}" data-svgshape="${l.key}"></path>
 	    </svg>
     `;
 }

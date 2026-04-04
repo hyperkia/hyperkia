@@ -11,15 +11,13 @@ const html = `
 							<li class="menu-item" data-lavel="2" data-action="fileexport">Export</li>
 						</ul>	
 					</li>
-					<!--
 					<li class="menu-item" data-lavel="1">Themes</li>
 					<li class="menu-item" data-lavel="1">Plugins</li>
 					<li class="menu-item" data-lavel="1">Settings</li>
 					<li class="menu-item" data-lavel="1">Help</li>
-					-->
 				</ul>	
 			</nav>
-			<kia-button class="sidebar-btn" data-icon="sidebar-symbol" data-event="flipSidebar" style="display:none !important;"></kia-button>
+			<kia-button class="sidebar-btn" data-icon="sidebar-symbol" data-event="flipSidebar"></kia-button>
 		</header>
 	</section>
 `;

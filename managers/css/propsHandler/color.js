@@ -8,6 +8,7 @@ function Index(source, result) {
 	if(source === 'SelectionToPropsInput') {
 		if(layerObj.css[prop]) result[prop] = layerObj.css[prop];
 		if(!result[prop]) result[prop] = '';
+		if(result[prop] === 'transparent') result[prop] = '';
 	}
 
 	if(source === 'propsInputToSelection') {

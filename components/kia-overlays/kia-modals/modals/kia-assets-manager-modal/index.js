@@ -47,6 +47,10 @@ class KIA_Assets_Manager_Modal extends KIACustomElement {
         Events[e.type]?.handler?.(e);      
     }
 
+    close(){
+        props.root.classList.remove('show');
+    }
+
 }
 
 if (!customElements.get('kia-assets-manager-modal')) {

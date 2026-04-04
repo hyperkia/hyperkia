@@ -132,6 +132,14 @@ const Index = {
 		KIA.observer.layers.observe('setSelectionAssets');
 	},
 
+	updatePsdLayers(layersNewObj){
+		console.log(layersNewObj);
+		for(let [lKey, lObj] of Object.entries(layersNewObj)) {
+			Object.assign(this.map[lKey].css, layersNewObj[lKey].css);
+		}
+		KIA.observer.layers.observe('updatePsdLayers');
+	}
+
 }
 
 export default Index;

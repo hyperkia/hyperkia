@@ -32,6 +32,7 @@ import updateLayerSelectionNodeName from './selection-layer/updateLayerSelection
 import updateLayerSelectionAssets from './selection-layer/updateLayerSelectionAssets.js';
 
 import updatePageSelectionCss from './selection-page/updatePageSelectionCss.js';
+import updatePsdLayers from './updatePsdLayers.js';
 
 
 
@@ -69,4 +70,5 @@ export default {
 	updateLayerSelectionAssets,
 
 	updatePageSelectionCss,
+	updatePsdLayers,
 };

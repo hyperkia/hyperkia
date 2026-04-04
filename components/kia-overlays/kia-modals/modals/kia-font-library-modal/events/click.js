@@ -4,7 +4,7 @@ import methods from '../utils/methods.js';
 class Index {
 
     static handler(e) {
-        if(props.eRTAction === 'closeModal') KIA.actions.kiaModals.closeModal();
+        if(props.eRTAction === 'closeModal') props.root.close();;
         if(props.eTarget.closest('.tabmenu-item')) this.switchTab();
         if(props.eTarget.matches('[data-action="add"]')) this.addProjectFont();
         if(props.eTarget.matches('[data-action="delete"]')) this.deleteProjectFont();

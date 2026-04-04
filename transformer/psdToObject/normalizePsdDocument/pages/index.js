@@ -3,9 +3,9 @@ import props from '../../props/index.js';
 
 function Index(pageKey) {
 	const pages = {};
-	const pId = crypto.randomUUID();
+	const key = crypto.randomUUID();
 	const pageObj = {
-		key: pId,
+		key,
 		name: props.file.name.split('.').slice(0, -1).join('.'),
 		css: {
 			width: props.psdRaw.width+'px',
@@ -18,7 +18,7 @@ function Index(pageKey) {
         layers: [],
 		source: 'psd',
 	};
-	pages[pId] = pageObj;
+	pages[key] = pageObj;
 
 	return pages;
 }

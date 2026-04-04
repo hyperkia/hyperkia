@@ -10,6 +10,7 @@ function Index() {
 
 	const obj = {
 		nodeName: 'rect',
+		type: 'rectsvg',
 		css: {},
 		attrs: {},
 		scss: {},

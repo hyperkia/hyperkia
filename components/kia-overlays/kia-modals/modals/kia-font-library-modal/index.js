@@ -48,6 +48,10 @@ class KIA_Font_Library_Modal extends KIACustomElement {
         Events[e.type]?.handler?.(e);      
     }
 
+    close(){
+        props.root.classList.remove('show');
+    }
+
     afterConnected(){
         this.props.root.$id.fontStyleEl = document.createElement('style');
         document.head.appendChild(this.props.root.$id.fontStyleEl);

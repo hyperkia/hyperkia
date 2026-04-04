@@ -3,7 +3,8 @@ function Index() {
 
 	const obj = {
 		nodeName: 'img',
-		css: {}
+		css: {},
+		type: 'imghtml',
 	};
 
 	return obj;

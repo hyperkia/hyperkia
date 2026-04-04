@@ -1,13 +1,21 @@
 import normalize from "./normalize.js";
 import createKey from "./createKey.js";
-import createElement from "./createElement.js";
+import createElement from "./createElement/index.js";
 
 
 const registry = new Map();
 let counter = 0;
 
-function Index(gradientData) {
-  const normalized = normalize(gradientData);
+  
+function Index(stack) {
+  let gradientStack = null;
+  for(let [sKet, sObj] of Object.entries(stack)) {
+    if(sObj.type === 'gradient' && sObj.source === 'psd') gradientStack = sObj;
+  }
+
+  if(!gradientStack) return;
+
+  const normalized = normalize(gradientStack);
   const key = createKey(normalized);
 
   if (registry.has(key)) {
@@ -18,8 +26,10 @@ function Index(gradientData) {
   registry.set(key, id);
 
   const gradientElement = createElement(id, normalized);
+  
+  if(!gradientElement) return;
   KIA.kiaCanvas.$id.gradientRegistryDefs.appendChild(gradientElement);
-
+  
   return id;
 }
 

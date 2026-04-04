@@ -9,7 +9,7 @@ import image from './image/index.js';
 
 function Index() {
 	const l = props.activeParseLayer.layer;
-	
+
 	if (l.text) return text();
 	if (l.vectorMask) return vectorMask();
 	if (l.vectorFill) return vectorFill();
@@ -17,6 +17,8 @@ function Index() {
 	// if (l.placedLayer) return image();
 	if (l.canvas) return raster();
 	// return "unknown";	
+
+
 }
 
 export default Index; 

@@ -3,14 +3,17 @@ import methods from '../utils/methods.js';
 
 class Index {    
     static handler(e) {
-        if (e.detail.source.matches('.available-fonts')) this.replaceByNewFont();        
+        if (e.detail.source.matches('.available-fonts')) this.updateRespectedFontWeight(e);        
     }
 
-    static replaceByNewFont(){   
-        const itemEl = props.eTarget.closest('.missing-item');
-        const key = itemEl.dataset.font;
-        props.fonts[key].data = itemEl.querySelector('.available-fonts').value;
-        props.fonts[key].status = true;      
+    static updateRespectedFontWeight(e){   
+        const selectEl = e.detail.source;
+        const itemEl = selectEl.closest('.missing-item');
+        const selectedFont = selectEl.value;
+        const weights = KIA.state.canvas.projectFonts[selectedFont];
+        const weightsEl = itemEl.querySelector('.font-weight-select');
+        weightsEl.dataset.iweights = weights.i;
+        weightsEl.dataset.nweights = weights.n;
     }
 }
 

@@ -5,6 +5,7 @@
 .prop-color::part(label-svg){border:1px solid #383838;background-color: var(--value, inherit);}
 .font-family::part(summary){font-size: 0px;}
 .font-family::part(summary)::before{content: var(--selection--font-family);font-size: 12px;}
+
 .font-weight-select::part(select-option){display: none;}
 
 .font-weight-select[data-iweights*="1"]::part(i1) { display: block; }

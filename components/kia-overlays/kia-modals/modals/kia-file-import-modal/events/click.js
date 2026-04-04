@@ -4,7 +4,7 @@ import methods from '../utils/methods.js';
 class Index {
 
     static handler(e) {
-        if (props.eRTAction === 'closeModal') KIA.actions.kiaModals.closeModal();
+        if (props.eRTAction === 'closeModal') props.root.close();
         if (props.eTAction === 'importFromUrl') this.importFromUrl();
         if (props.eTarget.closest('.tabmenu-item')) this.switchTab();
     }
@@ -24,7 +24,7 @@ class Index {
         const response = await fetch("./backend/fetch-html.php?url=" + encodeURIComponent(url));
         const rawhtml = await response.text();        
         KIA.transformer.htmlToObject.parse(rawhtml,url).then((response)=>{          
-            KIA.actions.kiaModals.closeModal();
+            props.root.close();
             KIA.actions.kiaFileImportModal.importProject(response);
             props.root.$id.importFromUrlBtn.innerText = 'Import';
             props.root.$id.importFromUrlBtn.classList.remove('disable');

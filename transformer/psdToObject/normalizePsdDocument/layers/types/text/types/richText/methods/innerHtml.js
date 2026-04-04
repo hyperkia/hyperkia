@@ -20,9 +20,7 @@ function Index(layer) {
         if(fontFamily) style += `font-family:${fontFamily};`;
 
         const fontSize = run.style?.fontSize || layer.text.style?.fontSize || undefined;
-    	const transform = layer.text?.transform || undefined;
-        const finalFontSize = methods.fontSize(fontSize, transform);
-    	if(finalFontSize) style += `font-size:${finalFontSize}px;`;
+    	if(fontSize) style += `font-size:${fontSize}px;`;
 
         let fontWeight = 400;
     	if(fontFamily.toLowerCase().indexOf('bold')>=0) fontWeight = 700;
@@ -30,10 +28,9 @@ function Index(layer) {
     	if(fontFamily.toLowerCase().indexOf('medium')>=0) fontWeight = 500;
         style += `font-weight:${fontWeight};`;
 
-        // const leading = run.style.leading || layer.text.style?.leading || undefined;        
-        // let finalLeading = (leading && methods.leading(leading, transform)) || 'normal';
-        // if(finalLeading !== 'normal') finalLeading += 'px';
-        // style += `line-height:${finalLeading};`;
+        let leading = run.style.leading || layer.text.style?.leading || undefined;
+        if(leading !== 'normal') leading += 'px';
+        style += `line-height:${leading};`;
 
         const slice = text.slice(index, index + run.length);
         index += run.length;

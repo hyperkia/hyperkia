@@ -12,7 +12,7 @@ const html = `
 	<kia-canvas></kia-canvas>
 	<kia-canvas-tools></kia-canvas-tools>
 	<kia-right-sidebar></kia-right-sidebar>
-	<kia-modals class=""></kia-modals>
+	<kia-modals class="show"></kia-modals>
 	<kia-popovers class=""></kia-popovers>
 	<kia-context-menu class=""></kia-context-menu>
 `;

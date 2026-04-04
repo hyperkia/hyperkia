@@ -5,18 +5,23 @@ import types from './types/index.js';
 function Index() {
 
 	const l = props.activeParseLayer.layer;
-	// if(l.name === 'Title-lets') console.log(l);
-	
+
 	const obj = {
 		nodeName: 'p',
 		innerText: l.text.text,
-		css: {},
+		css: {
+			overflow: 'hidden',
+		},
+		type: 'texthtml',
+		stack: {},
 	};
 
 	const normalizeTextLayer = types(l);
 
 	Object.assign(obj.css, normalizeTextLayer.css);
 	if(normalizeTextLayer.innerText) obj.innerText = normalizeTextLayer.innerText;
+	if(normalizeTextLayer.stack) Object.assign(obj.stack, normalizeTextLayer.stack);
+	if(normalizeTextLayer.css) Object.assign(obj.css, normalizeTextLayer.css);
 
 	return obj;
 }

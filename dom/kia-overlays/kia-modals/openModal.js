@@ -6,7 +6,7 @@ function Index() {
     	const element = document.createElement(nodeName);
     	element.classList.add('modal', 'show');
     	element.setAttribute('data-class', 'modal');
-    	KIA.kiaModals.shadowRoot.appendChild(element);
+    	KIA.kiaModals.$id.modals.appendChild(element);
     }
     KIA[name].classList.add('show');
 }

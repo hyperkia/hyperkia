@@ -6,10 +6,8 @@ const html = `
 		</header>
 		<article class="tab">
 			<div class="tabmenu">													
-				<!--
 				<span class="tabmenu-item active" data-target="uploadfile" data-class="tabmenu-item">Upload File</span>
 				<span class="tabmenu-item" data-target="fromurl" data-class="tabmenu-item">From URL</span>
-				-->
 			</div> 
 			<div class="tabcontents">
 				<div class="tabcontent active" data-id="uploadfile">
@@ -18,7 +16,7 @@ const html = `
 							<use href="assets/images/svg-icons.svg#upload-solid-full-symbol"></use>
 						</svg>
 						<h3 class="upload-title">Choose a file or drag & drop it here</h3>
-						<div class="upload-format">Hyperkia ZIP Format</div>
+						<div class="upload-format">PSD, Hyperkia ZIP Format</div>
 						<span class="upload-btn">Browse File</span>
 						<input class="upload-input" data-id="uploadFileInput" type="file" data-event="uploadFileInput">
 					</div>

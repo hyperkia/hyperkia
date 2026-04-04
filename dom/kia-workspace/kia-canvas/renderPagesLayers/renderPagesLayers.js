@@ -14,28 +14,42 @@ function Index() {
         const pLayers = pages[pk].layers;
         pLayers.forEach((lk) => {
             const l = layers[lk];
-            if(!l) return;
-            
-            // HTML
-            const n = l.nodeName;
-            if (['audio', 'document', 'img', 'path', 'video', 'rect', 'circle', 'line', 'ellipse', 'svg'].includes(n)) {
-                html[pk].push(layerUi[n](l));
-            } else if (l.innerText) {
-                html[pk].push(layerUi.text(l));
-            } else {
-                html[pk].push(layerUi.fallBack(l));
+            if (!l) return;
+
+            // --- HTML Rendering ---
+            try {
+                const n = l.nodeName;
+                if (['audio', 'document', 'img', 'path', 'video', 'rect', 'circle', 'line', 'ellipse', 'svg'].includes(n)) {
+                    html[pk].push(layerUi[n](l));
+                } else if (l.innerText) {
+                    html[pk].push(layerUi.text(l));
+                } else {
+                    html[pk].push(layerUi.fallBack(l));
+                }
+            } catch (err) {
+                console.warn(`HTML render failed for layer: ${lk}`, err);
             }
 
-            // HTML CSS            
-            const cssStr = KIA.utils.css.objectToCss(l.css);
-            css.push(`[data-layer="${l.key}"]{${cssStr}}`);
-
-            // SVG CSS
-            if (l.scss) {
-                const shapeCssStr = KIA.utils.css.objectToCss(l.scss);
-                css.push(`[data-svgshape="${l.key}"]{${shapeCssStr}}`);
+            // --- CSS Rendering ---
+            try {
+                if (l.css) {
+                    const cssStr = KIA.utils.css.objectToCss(l.css);
+                    css.push(`[data-layer="${l.key}"]{${cssStr}}`);
+                }
+            } catch (err) {
+                console.warn(`CSS failed for layer: ${lk}`, err);
             }
-        })
+
+            // --- SVG CSS ---
+            try {
+                if (l.scss) {
+                    const shapeCssStr = KIA.utils.css.objectToCss(l.scss);
+                    css.push(`[data-svgshape="${l.key}"]{${shapeCssStr}}`);
+                }
+            } catch (err) {
+                console.warn(`SVG CSS failed for layer: ${lk}`, err);
+            }
+        });
     }
 
     KIA.kiaCanvas.$id.style.innerHTML += css.join('');

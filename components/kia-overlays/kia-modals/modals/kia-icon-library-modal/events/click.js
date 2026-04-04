@@ -15,7 +15,7 @@ class Index {
             composed: true,
             detail: { source: 'kiaIconLibrary', iconName: props.selectedSvgTag }
         }));
-        KIA.actions.kiaModals.closeModal();
+        props.root.close();
     }
 
     static closeModal() {
@@ -24,7 +24,7 @@ class Index {
             composed: true,
             detail: { source: 'kiaIconLibrary', iconName: '' }
         }));
-        KIA.actions.kiaModals.closeModal();
+        props.root.close();
     }
 
 }

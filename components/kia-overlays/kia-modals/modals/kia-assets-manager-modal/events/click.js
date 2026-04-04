@@ -4,7 +4,7 @@ import methods from '../utils/methods.js';
 class Index {
 
     static handler(e) {
-        if (props.eRTAction === 'closeModal') KIA.actions.kiaModals.closeModal();
+        if (props.eRTAction === 'closeModal') props.root.close();
         if (props.eTarget.closest('.tabmenu-item')) this.switchTab();
         if (props.eTarget.closest('[data-asset]')) this.assetSelected();
     }
@@ -21,7 +21,7 @@ class Index {
     static assetSelected(){
         const key = props.eTarget.closest('[data-asset]').dataset.asset;
         KIA.actions.kiaAssetsManagerModal.selectAsset(key);
-        KIA.actions.kiaModals.closeModal();
+        props.root.close();
     }
 
 }

@@ -57,8 +57,9 @@ const Index = {
         const canvasObject = this.db.createObjectStore('canvas');
         const optionsObject = this.db.createObjectStore('options');
 
-        canvasObject.add(Date.now(), 'createdAt');
-        canvasObject.add(Date.now(), 'updatedAt');
+        const nowTime = Date.now();
+        canvasObject.add(nowTime, 'createdAt');
+        canvasObject.add(nowTime, 'updatedAt');
     },
 
     createObjectsVersion1() {},
@@ -79,9 +80,10 @@ const Index = {
             if(!this.db.objectStoreNames.contains(objectStore)) resolve({});
             const addTransaction = this.db.transaction([objectStore], 'readwrite');
             const addObjectStore = addTransaction.objectStore(objectStore);
+            const nowTime = Date.now();
             objects.forEach((o) => {
-                o.updatedAt = Date.now();
-                o.createdAt = Date.now();
+                o.updatedAt = nowTime;
+                o.createdAt = nowTime;
                 const addRequest = addObjectStore.add(o);
                 addRequest.onsuccess = (e) => {
                     storeobjects.push(o);
@@ -172,7 +174,7 @@ const Index = {
 
             getRequest.onsuccess = () => {
                 const getObj = getRequest.result;                
-
+                if(!getObj) return;
                 getObj.updatedAt = Date.now();
                 for (let prop in obj) {
                     if (prop === 'key') continue;

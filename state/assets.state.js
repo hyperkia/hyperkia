@@ -15,9 +15,7 @@ const Index = {
 	},
 
 	importAssets(assetsObj){
-		console.log(assetsObj);
 		for(let [aKey, aObj] of Object.entries(assetsObj)) this.map[aKey] = aObj;
-		console.log(this.map);
 		KIA.observer.assets.observe('uploadAssets');
 	},
 

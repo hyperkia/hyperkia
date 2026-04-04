@@ -14,7 +14,7 @@ function Index(obj) {
 	if(l.blendMode !== 'normal') obj.css['mix-blend-mode'] = l.blendMode;
 
 	const overlay = l.effects?.gradientOverlay?.[0];
-	if(overlay) obj.gradient = methods.getGradientData(overlay);
+	if(overlay) Object.assign(obj.stack, methods.getGradientData(overlay));
 
 	// Baselayer
 	if(l.clipping) {

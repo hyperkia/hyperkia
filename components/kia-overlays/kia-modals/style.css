@@ -1,7 +1,8 @@
-:host{position: fixed;top: 0;left: 0;z-index: -1;width: 100vw;height: 100vh;
+:host{pointer-events: none;}
+.modals{position: fixed;top: 0;left: 0;z-index: -1;width: 100vw;height: 100vh;
   pointer-events: none;background-color: rgba(0,0,0,0.4);visibility: hidden;
   opacity: 0;display: block;}
-:host(.show){pointer-events: auto;z-index: 3;visibility: visible;opacity: 1;}
+.modals:has(.modal.show){pointer-events: auto;z-index: 3;visibility: visible;opacity: 1;}
 
 .modal{position: fixed;top:50%;left:50%;transform: translate(-50%,-50%);
   width: var(--modal-width, 85vw);height: var(--modal-height, 85vh);background: #fff;

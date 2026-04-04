@@ -6,6 +6,7 @@ function Index() {
     props.activeParseLayer.zIndex++;
     const layerObj = {
         name: l.name,
+        assets: {},
         attrs: {},
         css: {
             'z-index': props.activeParseLayer.zIndex,
@@ -18,9 +19,8 @@ function Index() {
         },
         sattrs: {},
         scss: {},
-        stack: [],
+        stack: {},
     };
-
     return layerObj;
 }
 

@@ -48,6 +48,10 @@ class KIA_Missing_Fonts_Modal extends KIACustomElement {
         Events[e.type]?.handler?.(e);      
     }
 
+    close(){
+        props.root.classList.remove('show');
+    }
+
     afterConnected(){
         methods.init();
     }

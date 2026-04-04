@@ -1,13 +1,16 @@
 
-import props from './props/index.js'
+import props from './props/index.js';
+import collectAdditionalData from './collectAdditionalData.js';
 
 function Index(layer) {
 	const obj = {
-		css: {height: 'auto'},
+		css: {},
+		stack: {},
 	};
 	for(let p in props) Object.assign(obj.css, props[p](layer));
 
-	
+	collectAdditionalData(obj);
+
 
 	return obj;
 }
